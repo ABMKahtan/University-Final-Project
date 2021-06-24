@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | New Input {% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>  
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Portfolio Records</title>
+    </head>
+    <body>
+        <table class="table table-striped table-bordered table-sm">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Item:</th>
+                    <th>Units Owned</th>
+                    <th>Price Bought</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for portfolio in portfolios %}  
+                <tr>
+                    <td>{{ portfolio.item }}</td>
+                    <td>{{ portfolio.units_owned }}</td>
+                    <td>{{ portfolio.ppu_buy }}</td>
+                </tr>
+                {% endfor %}  
+            </tbody>
+        </table>
+        <br>  
+        <br>  
+        <center><a href="{% url 'listings' %}" class="btn btn-primary">Back To Portfolio</a></center>
+    </body>
+</html>
+
+{% endblock %}

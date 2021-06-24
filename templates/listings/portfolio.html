@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} | {{ user.username }}'s Portfolio {% endblock %}
+
+
+{% block content %}
+
+  <!-- Breadcrumb -->
+  <section id="bc" class="mt-3">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a href="{% url 'index' %}">
+              <i class="fas fa-home"></i> Home</a>
+          </li>
+          <li class="breadcrumb-item active"> My Portfolio</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+  
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+
+  <section id="dashboard" class="py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Welcome {{ user.username }}</h2>                    
+          <p>Here is your Portfolio</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Item</th>
+                <th scope="col">Units Owned</th>
+                <th scope="col">Price Bought ($)</th>
+                <th scope="col">Market Price ($)</th>
+                <th scope="col">Current Profit ($)</th>
+                <th scope="col">Delete Row</th>
+              </tr>
+            </thead>
+            <tbody> 
+            {% for portfolio in portfolios %}  
+               <tr>
+                  <td>{{ portfolio.item }}</td>
+                  <td>{{ portfolio.units_owned }}</td>
+                  <td>{{ portfolio.ppu_buy }}</td>
+                  <td>{{ portfolio.current_price }}</td>
+                  <td>{{ portfolio.current_profit }}</td>
+                  <td>  
+                      <a href="/editdb/{{ portfolio.id }}" class="btn btn-primary">Delete</a>  
+                  </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+  <section id="listing" class="py-4">
+            </div>
+          </div>
+          <center><a href="/editdb/emp/" class="btn btn-primary">Add New Item</a></center>
+        </div>
+      </div>
+    </div>
+  </section>
+        </div>
+      </div>
+    </div>
+</section>
+
+{% endblock %}

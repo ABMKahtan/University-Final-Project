@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} |  {% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>  
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Edit</title>
+    </head>
+    <body>
+        <form method="POST" class="post-form" action="editdb/update/{{portfolio.id}}">
+            {% csrf_token %}  
+            <div class="container">
+                <br>  
+                <div class="form-group row">
+                    <label class="col-sm-1 col-form-label"></label>  
+                    <div class="col-sm-4">
+                        <h3>Update Details</h3>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">id:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="id" id="id_id" required maxlength="10" value="{{ portfolio.id }}"/>  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">item:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="item" id="id_item" required maxlength="255" value="{{ portfolio.item }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">item_id:</label>  
+                    <div class="col-sm-4">  
+                        <input type="email" name="item_id" id="id_item_id" required maxlength="255" value="{{ portfolio.item_id }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">units_owned:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="units_owned" id="id_units_owned" required maxlength="255" value="{{ portfolio.units_owned }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">ppu_buy:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="ppu_buy" id="id_ppu_buy" required maxlength="255" value="{{ portfolio.ppu_buy }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">ppu_sell:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="ppu_sell" id="id_ppu_sell" required maxlength="10" value="{{ portfolio.ppu_sell }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">current_profit:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="current_profit" id="id_current_profit" required maxlength="255" value="{{ portfolio.current_profit }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label">user_id:</label>  
+                    <div class="col-sm-4">  
+                        <input type="text" name="user_id" id="id_user_id" required maxlength="255" value="{{ portfolio.user_id }}" />  
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-1 col-form-label"></label>  
+                    <div class="col-sm-4">  
+                        <button type="submit" class="btn btn-success">Update</button>  
+                    </div>
+                </div>
+            </div>
+        </form>
+    </body>
+</html>
+
+{% endblock %}

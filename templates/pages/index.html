@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %} | Welcome {% endblock %}
+
+{% block content %}
+  <!-- Showcase -->
+  <section id="showcase">
+    <div class="container text-center">
+      <div class="home-search p-5">
+        <div class="overlay p-5">
+          <h1 class="display-4 mb-4">
+            Home Page 
+          </h1>      
+  </section>
+
+  <section id="services" class="py-5 bg-secondary text-white">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-md-4">
+          <i class="fas fa-comment fa-4x mr-4"></i>
+          <hr>
+          <h3>Who I Am</h3>
+          <p>I am Abu Baker Kahtan a student of leeds beckett university</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-home fa-4x mr-4"></i>
+          <hr>
+          <h3>What is this Project?</h3>
+          <p>This is my final project for my university</p>
+        </div>
+        <div class="col-md-4">
+          <i class="fas fa-suitcase fa-4x mr-4"></i>
+          <hr>
+          <h3>What is it for</h3>
+          <p>The main functionality of this is to be able to track and keep track of your personal investments.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Alerts -->
+  {% include 'partials/_alerts.html' %}
+  
+{% endblock %}
